@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="base_red">#fffb6655</color>
+    <color name="base_purple">#ff5b0bf7</color>
+    <color name="base_yellow">#fff7d80b</color>
+    <color name="base_brown">#ff403b37</color>
+    <color name="base_white">#fffdf7ed</color>
+    <color name="base_black">#ff000000</color>
+
+    <color name="base_text_gray">#ff403b37</color>
+    <color name="base_text_black">@color/base_black</color>
+    <color name="base_text_white">#ffffffff</color>
+
+    <color name="background_white">@color/base_white</color>
+    <color name="background_pure_white">@color/pure_white</color>
+    <color name="background_content">@color/white_alpha_percent_80</color>
+    <color name="background_yellow">@color/base_yellow</color>
+
+    <color name="pure_black">@android:color/black</color>
+    <color name="pure_white">@android:color/white</color>
+    <color name="button_bg">@color/base_red</color>
+    <color name="line_black">@color/pure_black</color>
+    <color name="default_line_color">#e6e6e6</color>
+    <color name="red_tip_bg">#fff24444</color>
+    <color name="red_pack_head_bg">#DC143C</color>
+
+    <color name="text_red">@color/base_red</color>
+    <color name="text_red_unselected">@color/red_alpha_percent_50</color>
+    <color name="text_white">@color/pure_white</color>
+    <color name="text_black">@color/pure_black</color>
+    <color name="text_brown">@color/base_brown</color>
+    <color name="text_common">@color/base_brown</color>
+    <color name="text_yellow">@color/base_yellow</color>
+    <color name="text_gray">#7b403b37</color>
+    <color name="text_grad">#fff0f0f0</color>
+    <color name="text_hint">#ff111111</color>
+    <color name="text_hint_1">#ffd7d7d7</color>
+    <color name="text_user_edit">@color/text_brown</color>
+    <color name="text_login">#ff515151</color>
+    <color name="text_user_info">#ff666666</color>
+    <color name="text_subtitle">#ff666666</color>
+    <color name="text_mine_item">@color/text_brown</color>
+    <color name="text_edit_blue">@color/base_red</color>
+    <color name="text_sub_gray">#ffbababa</color>
+    <color name="text_user_input_hint">#ffd7d7d7</color>
+    <color name="text_gray_3">#ff979797</color>
+    <color name="text_gray_4">#7f979797</color>
+    <color name="text_common_alpha_60">#99403b37</color>
+    <color name="text_common_alpha_50">#80403b37</color>
+    <color name="text_comment_yellow_color">@color/base_yellow</color>
+    <color name="text_comment_sys_tip_color">#af86ff</color>
+    <color name="text_comment_red_color">#ff9584</color>
+    <color name="text_comment_user_name_color">#ffebab</color>
+    <color name="text_gray_shadow_color">#aba9a7</color>
+    <color name="text_black_shadow_color">@color/black_alpha_percent_60</color>
+
+    <color name="user_center_shadow">#30403b37</color>
+    <color name="create_red_pack_bg">#fff4f4f4</color>
+    <color name="item_divider_1">#fff0f0f0</color>
+
+    <color name="edit_text_bg">@android:color/white</color>
+    <color name="video_loading_bg">#ff1f1c25</color>
+    <color name="red_pack_color_yellow">#f7c35b</color>
+
+    <color name="purple_alpha_percent_80">#b45b0bf7</color>
+    <color name="yellow_alpha_percent_80">#b4f7d80b</color>
+    <color name="red_alpha_percent_50">#7bfb6655</color>
+    <color name="red_alpha_percent_80">#b4fb6655</color>
+    <color name="white_alpha_percent_90">#e6ffffff</color>
+    <color name="white_alpha_percent_80">#b4ffffff</color>
+    <color name="white_alpha_percent_60">#99ffffff</color>
+    <color name="white_alpha_percent_45">#73ffffff</color>
+    <color name="white_alpha_percent_25">#40ffffff</color>
+    <color name="black_alpha_percent_85">#cc000000</color>
+    <color name="black_alpha_percent_80">#cc000000</color>
+    <color name="black_alpha_percent_70">#b3000000</color>
+    <color name="black_alpha_percent_60">#7f000000</color>
+    <color name="black_alpha_percent_50">#7f000000</color>
+    <color name="black_alpha_percent_30">#4d000000</color>
+    <color name="black_alpha_percent_20">#33000000</color>
+    <color name="black_alpha_percent_18">#2e000000</color>
+    <color name="black_alpha_percent_10">#19000000</color>
+    <color name="black_alpha_percent_5">#13000000</color>
+
+    <color name="list_item_focus">#ccf0f0f0</color>
+    <color name="list_item_white_bg">@color/white_alpha_percent_45</color>
+    <color name="alpha_living_bg_percent_50">#7faa3333</color>
+
+    <color name="round_border">#ffd7d7d7</color>
+
+    <color name="action_bar_bg">@color/white_alpha_percent_45</color>
+    <color name="action_bar_home_bg">@color/white_alpha_percent_45</color>
+    <color name="action_bar_bg_stacked">@color/white_alpha_percent_45</color>
+    <color name="action_bar_home_title_color">@color/text_common</color>
+    <color name="action_bar_title_color">@color/text_common</color>
+    <color name="action_bar_title_indicator_selected">@color/base_red</color>
+    <color name="action_bar_title_indicator_normal">@color/text_common</color>
+    <color name="action_menu_text_color">@color/text_common</color>
+    <color name="action_bar_tab_text_color">@color/text_common</color>
+    <color name="action_bar_tab_bg">@color/white_alpha_percent_45</color>
+
+    <color name="bubble_internal">#80669999</color>
+    <color name="bubble_border">#2d669999</color>
+    <color name="bubble_shape_color_1">#ff55cf6c</color>
+    <color name="bubble_shape_color_2">#ff48b1e8</color>
+    <color name="bubble_shape_color_3">#ffeb5757</color>
+    <color name="bubble_shape_color_4">#ff076bff</color>
+    <color name="province_line_border">#D0D0D0</color>
+
+    <color name="top_bar_normal_bg">#00acff</color>
+    <color name="btn_gray_normal">#c0c0c0</color>
+    <color name="btn_gray_pressed_status">#b5b5b6</color>
+    <color name="voip_interface_text_color">#bababa</color>
+    <color name="error_item_color">#F6EBE6</color>
+
+    <color name="user_tag_bd_1">#e0e7fe</color>
+    <color name="user_tag_bd_2">#fefdca</color>
+    <color name="user_tag_bd_3">#e7f6fc</color>
+    <color name="user_tag_bd_4">#f6ffdd</color>
+    <color name="user_tag_bd_5">#ffe6eb</color>
+    <color name="user_tag_bd_6">#e7ffec</color>
+    <color name="user_tag_bd_7">#fff0dc</color>
+    <color name="user_tag_bd_8">#f8e8fc</color>
+    <color name="user_tag_bd_9">#dffbfb</color>
+    <color name="user_tag_bd_10">#e4e0ff</color>
+    <color name="user_tag_text_color_1">#afbfe6</color>
+    <color name="user_tag_text_color_2">#f2d68f</color>
+    <color name="user_tag_text_color_3">#bdd9ec</color>
+    <color name="user_tag_text_color_4">#d6e8a5</color>
+    <color name="user_tag_text_color_5">#edbdc6</color>
+    <color name="user_tag_text_color_6">#baebc4</color>
+    <color name="user_tag_text_color_7">#e2b8e9</color>
+    <color name="user_tag_text_color_8">#e2c5e8</color>
+    <color name="user_tag_text_color_9">#9fe3e3</color>
+    <color name="user_tag_text_color_10">#bcb6e9</color>
+
+    <color name="user_join_text_color">#FFED3F</color>
+    <color name="live_topic_item_text_color">#403b37</color>
+    <color name="live_topic_item_pressed_text_color">#FFFFFF</color>
+    <color name="hot_subject_praise_text_color">#FB6655</color>
+    <color name="chat_red_pack_pressed">#C85144</color>
+
+    <color name="color_grey_bkg">#f1f1f1</color>
+    <color name="light_blue_btn">#ff00dab8</color>
+    <color name="alpha_black_percent_60">#7f000000</color>
+</resources>

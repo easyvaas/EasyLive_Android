@@ -1,0 +1,124 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="tab_bar_height">48dp</dimen>
+
+    <dimen name="divider_height">0.5dp</dimen>
+    <dimen name="divider_width">0.3dp</dimen>
+
+    <dimen name="icon_text_size">12sp</dimen>
+    <dimen name="icon_text_padding">3dp</dimen>
+    <dimen name="avatar_size">28dp</dimen>
+    <dimen name="avatar_watcher_size">30dp</dimen>
+    <dimen name="avatar_big_size">36dp</dimen>
+    <dimen name="avatar_big_big_size">44dp</dimen>
+    <dimen name="avatar_big_first_size">50dp</dimen>
+    <dimen name="avatar_big_second_size">60dp</dimen>
+    <dimen name="avatar_big_third_size">80dp</dimen>
+    <dimen name="avatar_big_first_bg_size">63dp</dimen>
+    <dimen name="avatar_big_second_bg_size">75dp</dimen>
+    <dimen name="avatar_big_third_bg_size">110dp</dimen>
+    <dimen name="avatar_red_pack_size">66dp</dimen>
+    <dimen name="avatar_user_center_size">60dp</dimen>
+    <dimen name="thumb_small_height">156dp</dimen>
+    <dimen name="thumb_big_height">200dp</dimen>
+    <dimen name="hot_image_slider_height">106dp</dimen>
+
+    <dimen name="button_common_height">38dp</dimen>
+    <dimen name="button_common_small_height">30dp</dimen>
+    <dimen name="avatar_border_width">1dp</dimen>
+    <dimen name="common_drawable_padding">3dp</dimen>
+    <dimen name="common_user_list_item_height">69dp</dimen>
+    <dimen name="list_item_user_height">58dp</dimen>
+    <dimen name="list_item_video_limit_height">51dp</dimen>
+
+    <dimen name="status_bar_height">24dp</dimen>
+
+    <dimen name="text_size_maximum">19sp</dimen>
+    <dimen name="text_size_17">17sp</dimen>
+    <dimen name="text_size_16">16sp</dimen>
+    <dimen name="text_size_title_h1">15sp</dimen>
+    <dimen name="text_size_title_h2">14sp</dimen>
+    <dimen name="text_size_13">13sp</dimen>
+    <dimen name="text_size_12">12sp</dimen>
+    <dimen name="text_size_11">11sp</dimen>
+    <dimen name="text_size_10">10sp</dimen>
+    <dimen name="text_size_7">7sp</dimen>
+    <dimen name="text_size_8">8sp</dimen>
+    <dimen name="text_size_minimum">9sp</dimen>
+    <dimen name="text_size_home_tab_title">@dimen/text_size_17</dimen>
+
+    <dimen name="dialog_width">320dip</dimen>
+    <dimen name="dialog_height">185dip</dimen>
+
+    <dimen name="timeline_operation_header_height">56dp</dimen>
+    <dimen name="action_bar_height">54dp</dimen>
+    <dimen name="home_title_total_height">110dp</dimen>
+    <dimen name="action_bar_home_height">82dp</dimen>
+    <dimen name="action_bar_status_bar_height">78dp</dimen>
+    <dimen name="action_bar_title_text_size">18sp</dimen>
+    <dimen name="action_bar_title_indicator_text_size">@dimen/text_size_title_h1</dimen>
+    <dimen name="action_bar_menu_text_size">16sp</dimen>
+
+    <dimen name="chat_user_logo_border_width">0.6dp</dimen>
+    <dimen name="chat_avatar_size">38dp</dimen>
+
+    <dimen name="message_remind_icon_margin_right">27dp</dimen>
+    <dimen name="margin_chat_activity">5dp</dimen>
+    <dimen name="padding_search_bar">5dp</dimen>
+    <dimen name="emoji_size_small">16dp</dimen>
+    <dimen name="context_menu_item_height">48dp</dimen>
+    <dimen name="chat_item_side_margin">12dp</dimen>
+
+    <dimen name="player_pre_start_button_width">226dp</dimen>
+    <dimen name="gift_show_margin_left">10dp</dimen>
+    <dimen name="user_center_empty_view_margin_top">360dp</dimen>
+    <dimen name="zip_animation_ship_move1">373dp</dimen>
+    <dimen name="zip_animation_ship_move2">350dp</dimen>
+    <dimen name="zip_animation_car1_move1">110dp</dimen>
+    <dimen name="zip_animation_car1_move2">250dp</dimen>
+    <dimen name="ship_margin_left">300dp</dimen>
+    <dimen name="ship_margin_top">350dp</dimen>
+    <dimen name="ship_margin_top_1080">320dp</dimen>
+    <dimen name="ship_margin_left_1080">245dp</dimen>
+    <dimen name="zip_animation_flag_width">50dp</dimen>
+    <dimen name="zip_animation_flag_height">80dp</dimen>
+    <dimen name="zip_animation_water_marginTop">350dp</dimen>
+
+
+    <dimen name="zip_animation_car1_width">380dp</dimen>
+    <dimen name="zip_animation_car1_height">100dp</dimen>
+    <dimen name="zip_animation_car1_marginRight">-100dp</dimen>
+    <dimen name="zip_animation_car1_marginTop">225dp</dimen>
+    <dimen name="zip_animation_car1_width2">305dp</dimen>
+    <dimen name="zip_animation_car1_heigh2">109dp</dimen>
+    <dimen name="zip_animation_car1_marginRight2">-220dp</dimen>
+    <dimen name="zip_animation_car1_marginTop2">100dp</dimen>
+    <dimen name="zip_animation_car2_width">200dp</dimen>
+    <dimen name="zip_animation_car2_heigh">100dp</dimen>
+    <dimen name="zip_animation_car2_marginRight">-300dp</dimen>
+    <dimen name="zip_animation_car2_marginTop">300dp</dimen>
+    <dimen name="zip_animation_car2_rl_marginTop">250dp</dimen>
+    <dimen name="zip_animation_car2_rl_marginLeft">-300dp</dimen>
+    <dimen name="zip_animation_car2_imageview3_width">250dp</dimen>
+    <dimen name="zip_animation_car2_imageview3_height">150dp</dimen>
+    <dimen name="zip_animation_car2_imageview1_width">40dp</dimen>
+    <dimen name="zip_animation_car2_imageview1_height">40dp</dimen>
+    <dimen name="zip_animation_car2_imageview1_marginLeft">35dp</dimen>
+    <dimen name="zip_animation_car2_imageview2_width">40dp</dimen>
+    <dimen name="zip_animation_car2_imageview2_height">40dp</dimen>
+    <dimen name="zip_animation_car2_imageview2_marginRight">37dp</dimen>
+    <dimen name="zip_animation_car2_imageview2_marginBottom">30dp</dimen>
+
+    <integer name="text_common_shadow_dx">1</integer>
+    <integer name="text_common_shadow_dy">1</integer>
+    <integer name="text_common_shadow_shadowRadius">2</integer>
+
+    <dimen name="live_pre_take_photo_top">90dp</dimen>
+    <dimen name="live_gift_pipe_bottom">266dp</dimen>
+
+    <dimen name="live_topic_item_button_width">147dp</dimen>
+</resources>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+    <android.opengl.GLSurfaceView
+        android:id="@+id/camera_preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true" />
+
+    <ImageView
+        android:id="@+id/qrcode_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone"/>
+
+    <include
+        android:id="@+id/live_info_rl"
+        layout="@layout/live_info"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"/>
+
+    <RelativeLayout
+        android:id="@+id/live_options_right_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="12dp"
+        android:layout_marginRight="14dp"
+        android:visibility="gone"
+        android:gravity="center_vertical">
+        <CheckBox
+                android:id="@+id/interactive_live_cb"
+                android:layout_toLeftOf="@+id/live_beauty_cb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/ic_live_interactive"
+                android:checked="false"
+                android:button="@null"/>
+        <CheckBox
+            android:id="@+id/live_beauty_cb"
+            android:layout_toLeftOf="@+id/live_mute_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/ic_live_beauty"
+            android:checked="false"
+            android:button="@null"/>
+        <CheckBox
+            android:id="@+id/live_mute_cb"
+            android:layout_toLeftOf="@+id/live_flash_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/ic_live_mute"
+            android:checked="false"
+            android:button="@null"/>
+        <CheckBox
+            android:id="@+id/live_flash_cb"
+            android:layout_toLeftOf="@+id/live_switch_camera_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/ic_live_flash"
+            android:checked="false"
+            android:button="@null"/>
+        <CheckBox
+            android:id="@+id/live_switch_camera_cb"
+            android:layout_toLeftOf="@+id/live_stop_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/live_icon_cut"
+            android:checked="true"
+            android:button="@null"/>
+        <ImageView
+            android:id="@+id/live_stop_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/live_icon_end"/>
+    </RelativeLayout>
+
+</RelativeLayout>

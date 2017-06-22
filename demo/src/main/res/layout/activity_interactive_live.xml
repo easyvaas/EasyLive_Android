@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/fl_remote_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00ff00" />
+
+    <FrameLayout
+        android:id="@+id/fl_local_container"
+        android:layout_width="120dp"
+        android:layout_height="214dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="#0000ff" />
+</RelativeLayout>

@@ -1,0 +1,184 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/color_grey_bkg"
+              android:layout_centerVertical="true"
+              android:orientation="vertical">
+
+    <ImageView
+        style="@style/default_horizontal_line_style"/>
+
+    <RelativeLayout
+        android:id="@+id/user_data_ll"
+        style="@style/item_user_info">
+
+        <TextView
+            android:id="@+id/user_data_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/user_data"
+            android:textSize="@dimen/text_size_title_h2"/>
+
+        <EditText
+            android:id="@+id/user_data_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="left|center_vertical"
+            android:singleLine="true"
+            android:editable="false"
+            android:layout_marginLeft="94dp"
+            android:layout_marginRight="22dp"
+            android:layout_alignParentRight="true"
+            android:textSize="@dimen/text_size_title_h2"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/topic_ll"
+        style="@style/item_user_info">
+
+        <TextView
+            android:id="@+id/topic_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/topic"
+            android:textSize="@dimen/text_size_title_h2"/>
+
+        <EditText
+            android:id="@+id/topic_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="left|center_vertical"
+            android:text="apptest"
+            android:singleLine="true"
+            android:layout_marginLeft="94dp"
+            android:layout_marginRight="22dp"
+            android:layout_alignParentRight="true"
+            android:textSize="@dimen/text_size_title_h2"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/connect_ll"
+        style="@style/item_user_info">
+
+        <Button
+            android:id="@+id/msg_connect_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/connect_msg_btn"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/join_topic_ll"
+        style="@style/item_user_info"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/join_topic_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/join_topic_btn"/>
+
+    </RelativeLayout>
+
+    <ImageView
+        style="@style/default_horizontal_line_style"/>
+
+    <RelativeLayout
+        android:id="@+id/msg_box_ll"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:paddingLeft="28dp"
+        android:paddingRight="15dp">
+
+        <TextView
+            android:id="@+id/msg_record_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/msg_record"
+            android:textSize="@dimen/text_size_title_h2"/>
+
+        <ScrollView
+            android:id="@+id/msg_box_sv"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:layout_below="@id/msg_record_tv"
+            android:text="hello"
+            android:background="#c8d8f4"/>
+
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/msg_send_ll"
+        style="@style/item_user_info">
+
+        <EditText
+            android:id="@+id/msg_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingRight="95dp"
+            android:gravity="left|center_vertical"
+            android:text="hello world!"
+            android:maxLength="144"
+            android:textSize="@dimen/text_size_title_h2"
+            android:layout_alignParentLeft="true"/>
+
+        <Button
+            android:id="@+id/send_msg_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_alignParentRight="true"
+            android:text="@string/send_topic_btn"/>
+
+    </RelativeLayout>
+
+    <ImageView
+        style="@style/default_horizontal_line_style"/>
+
+    <RelativeLayout
+        android:id="@+id/leave_topic_ll"
+        style="@style/item_user_info">
+
+        <Button
+            android:id="@+id/like_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:text="@string/like_btn"/>
+
+        <Button
+            android:id="@+id/get_history_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerInParent="true"
+            android:text="@string/get_history_msg_btn"/>
+
+        <Button
+            android:id="@+id/leave_topic_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:text="@string/leave_topic_btn"/>
+
+    </RelativeLayout>
+
+    <ImageView
+        style="@style/default_horizontal_line_style"/>
+
+</LinearLayout>
+

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- button 画线和中间的背景 -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item>
+        <shape>
+            <solid android:color="@color/light_blue_btn" />
+            <corners android:radius="19dp" />
+        </shape>
+    </item>
+</layer-list>

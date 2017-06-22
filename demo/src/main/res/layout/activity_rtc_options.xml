@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_grey_bkg"
+    android:layout_centerVertical="true"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pls_input_channel"
+        android:layout_marginTop="15dp"
+        android:paddingLeft="28dp"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/channel_id_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/input_channel_id"
+        android:layout_marginTop="15dp"
+        android:paddingLeft="28dp"
+        android:singleLine="true"
+        android:textSize="18sp"/>
+
+    <RelativeLayout
+        android:id="@+id/rtc_start_ll"
+        style="@style/item_user_info">
+
+        <Button
+            android:id="@+id/rtc_start_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/start_rtc"/>
+    </RelativeLayout>
+
+</LinearLayout>
+

@@ -1,0 +1,280 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/color_grey_bkg"
+              android:layout_centerVertical="true"
+              android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/orientation_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingLeft="28dp"
+        android:paddingRight="15dp">
+
+        <RadioGroup
+            android:id="@+id/orientation_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radiobutton_portrait"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/orientation_portrait" />
+
+            <RadioButton
+                android:id="@+id/radiobutton_landscape"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/orientation_landscape" />
+        </RadioGroup>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/resolution_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingLeft="28dp"
+        android:paddingRight="15dp">
+
+        <TextView
+            android:id="@+id/resolution_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_resolution"
+            android:textSize="@dimen/text_size_title_h2"/>
+
+        <RadioGroup
+            android:id="@+id/resolution_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/resolution_tv"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radiobutton_360p"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/resolution_360p" />
+
+            <RadioButton
+                android:id="@+id/radiobutton_540p"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/resolution_540p" />
+
+            <RadioButton
+                android:id="@+id/radiobutton_720p"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/resolution_720p" />
+        </RadioGroup>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/init_video_bitrate_ll"
+        style="@style/item_user_info">
+        <TextView
+            android:id="@+id/init_video_bitrate_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/init_video_bitrate"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/text_size_title_h2"/>
+        <EditText
+            android:id="@+id/init_video_bitrate_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="110dp"
+            android:layout_marginRight="100dp"
+            android:layout_centerVertical="true"
+            android:gravity="left|center_vertical"
+            android:inputType="number"
+            android:maxLength="15"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textColor="@color/text_user_edit"
+            android:textColorHint="@color/text_user_input_hint"
+            android:textSize="@dimen/text_size_title_h2"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="50dp"
+            android:layout_centerVertical="true"
+            android:text="@string/kilo_bit_per_second"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/text_size_title_h2"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/use_front_camera_ll"
+        style="@style/item_user_info">
+
+        <CheckBox
+            android:id="@+id/use_front_camera_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:checked="false"
+            android:text="@string/use_front_camera" />
+
+        <CheckBox
+            android:id="@+id/beauty_on_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:checked="false"
+            android:text="@string/beauty_on"/>
+    </RelativeLayout>
+
+    <ImageView
+        style="@style/default_horizontal_line_style"/>
+
+    <RelativeLayout
+        android:id="@+id/audio_codec_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingLeft="28dp"
+        android:paddingRight="15dp">
+
+        <TextView
+            android:id="@+id/audio_codec_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_audio_codec"
+            android:textSize="@dimen/text_size_title_h2"/>
+
+        <RadioGroup
+            android:id="@+id/audio_codec_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/audio_codec_tv"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/codec_aac_lc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/codec_aac_lc" />
+
+            <RadioButton
+                android:id="@+id/codec_aac_he"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/codec_aac_he" />
+        </RadioGroup>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/audio_bitrate_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingLeft="28dp"
+        android:paddingRight="15dp">
+
+        <TextView
+            android:id="@+id/audio_bitrate_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/audio_bitrate"
+            android:textSize="@dimen/text_size_title_h2"/>
+
+        <RadioGroup
+            android:id="@+id/audio_bitrate_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/audio_bitrate_tv"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/audio_bitrate_16k"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/audio_bitrate_16k" />
+
+            <RadioButton
+                android:id="@+id/audio_bitrate_32k"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/audio_bitrate_32k" />
+
+            <RadioButton
+                android:id="@+id/audio_bitrate_48k"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/audio_bitrate_48k" />
+        </RadioGroup>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bgm_mixer_ll"
+        style="@style/item_user_info">
+
+        <CheckBox
+            android:id="@+id/bgm_mixer_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:checked="false"
+            android:text="@string/bgm_mixer_switch" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/video_vid_ll"
+        style="@style/item_user_info">
+        <TextView
+            android:id="@+id/video_vid_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/pls_input_video_vid"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/text_size_title_h2"/>
+        <EditText
+            android:id="@+id/video_vid_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="110dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="50dp"
+            android:layout_centerVertical="true"
+            android:gravity="left|center_vertical"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:editable="false"
+            android:textColor="@color/text_user_edit"
+            android:textColorHint="@color/text_user_input_hint"
+            android:textSize="@dimen/text_size_title_h2"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/live_start_ll"
+        style="@style/item_user_info">
+
+        <Button
+            android:id="@+id/live_start_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/start_live"/>
+    </RelativeLayout>
+</LinearLayout>

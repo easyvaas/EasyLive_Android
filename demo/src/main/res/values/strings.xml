@@ -1,0 +1,174 @@
+<resources>
+    <string name="app_name">sdkdemo</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="connect_msg_btn">连接聊天服务器</string>
+    <string name="send_ping_btn">发送ping包</string>
+    <string name="join_topic_btn">加入Topic</string>
+    <string name="send_topic_btn">发送消息</string>
+    <string name="like_btn">点赞</string>
+    <string name="get_history_msg_btn">获取历史消息</string>
+    <string name="leave_topic_btn">离开Topic</string>
+    <string name="title_activity_message">MessageActivity</string>
+
+    <string name="app_id">APP ID: </string>
+    <string name="access_key">Access KEY: </string>
+    <string name="secret_key">Secret KEY: </string>
+    <string name="init_sdk_btn">初始化sdk</string>
+
+    <string name="msg_app_id_not_null">APP ID不能为空</string>
+    <string name="msg_access_key_not_null">Access KEY不能为空</string>
+    <string name="msg_secret_key_not_null">Secret KEY不能为空</string>
+    <string name="msg_user_id_not_null">User ID不能为空</string>
+    <string name="msg_init_sdk_success">SDK初始化成功!</string>
+    <string name="msg_init_sdk_fail">SDK初始化失败: %1$s</string>
+    <string name="msg_sdk_initing">正在初始化</string>
+    <string name="msg_sdk_init_success">初始化成功</string>
+    <string name="msg_sdk_reinit">重新初始化</string>
+
+    <string name="live_push_btn">直播功能</string>
+    <string name="message_btn">消息系统</string>
+    <string name="live_show_btn">观看视频</string>
+    <string name="rtc_btn">连麦</string>
+    <string name="live_interactive_live">连麦（辅播）</string>
+    <string name="title_activity_recorder">RecorderActivity</string>
+
+    <string name="loading_data">正在加载数据…</string>
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+    <string name="msg_play_complete">播放结束</string>
+    <string name="msg_login_error">授权失败，请注册新用户</string>
+    <string name="msg_user_not_exist">用户不存在，请注册</string>
+    <string name="prompt_phone_hint">请输入手机号</string>
+    <string name="prompt_verification_input">请输入验证码</string>
+    <string name="prompt_nickname_input">请输入用户昵称</string>
+    <string name="verification_code_input">验证码</string>
+    <string name="dialog_title_register">注册</string>
+    <string name="phone_register">手机注册</string>
+    <string name="dialog_title_phone_register">请注册您的手机信息</string>
+    <string name="dialog_title_live_stop">直播已停止</string>
+    <string name="get_verification">获取验证码</string>
+    <string name="get_verification_again">重新获取验证码</string>
+    <string name="get_verification_count_down">秒后重发</string>
+    <string name="title_activity_user_register">UserRegisterActivity</string>
+    <string name="live_title_default">%1$s正在直播: %2$s</string>
+
+    <string name="msg_phone_number_invalid">手机号码格式错误</string>
+    <string name="msg_phone_number_empty">手机号码不能为空</string>
+    <string name="msg_verify_code_empty">验证码不能为空</string>
+    <string name="msg_nickname_empty">昵称不能为空</string>
+    <string name="msg_phone_have_registered">该手机号已被注册,请使用未注册过的手机号</string>
+    <string name="msg_register_sms_verify">注册失败,请先获取短信验证码进行验证</string>
+    <string name="msg_invalid_phone">注册失败，手机号码无效</string>
+    <string name="msg_invalid_title">直播标题不能为空</string>
+    <string name="msg_verify_failed">验证失败,请检查您的验证码</string>
+    <string name="msg_registered_success">注册成功</string>
+    <string name="msg_registered_errer">注册失败</string>
+    <string name="msg_network_bad_check_retry">网络异常，请检查网络后重试</string>
+    <string name="msg_play_error">播放失败</string>
+    <string name="msg_appkey_invalid">无效的AppKey，请使用合法的AppKey</string>
+    <string name="msg_sdk_init_error">SDK初始化失败</string>
+    <string name="msg_video_not_exist">视频不存在</string>
+    <string name="msg_vod_not_created">播放失败，回放视频没有创建成功</string>
+    <string name="msg_push_locate_error">请求推流调度出错,直播失败</string>
+    <string name="msg_push_redirect_error">获取推流地址出错,直播失败</string>
+    <string name="msg_push_register_error">注册推流资源失败</string>
+    <string name="msg_live_show_error">请求播放调度出错,播放失败</string>
+    <string name="msg_live_redirect_error">获取播放地址出错,播放失败</string>
+    <string name="msg_play_parameter_error">参数设置错误,播放失败</string>
+    <string name="msg_play_not_support_error">不支持的播放格式,播放失败</string>
+    <string name="msg_play_none_stream_error">播放的视频不存在</string>
+    <string name="msg_play_live_error">请求播放的直播未开始或已经结束</string>
+    <string name="msg_play_record_error">请求播放的回放文件还未生成</string>
+    <string name="msg_play_file_error">请求播放的回放文件出错</string>
+
+    <string name="title_audio_record_error">无法打开音频设备，请重试</string>
+    <string name="title_camera_audio_permission">没有访问摄像头或声音的权限,请检查权限设置</string>
+    <string name="title_call_camera_error">无法打开相机，请重试</string>
+    <string name="title_version_not_supported">当前系统版本太低，暂不支持该功能</string>
+    <string name="title_confirm_stop_live">确定停止当前直播吗？</string>
+    <string name="network_ok_message">直播已经恢复</string>
+    <string name="network_error_message">当前无网络</string>
+    <string name="network_invalid_try_reconnect">当前网络不给力，正在为您优化连线</string>
+    <string name="vid_was_empty">lid为空,二维码生成失败</string>
+    <string name="scan_qr_code">扫一扫</string>
+    <string name="msg_scan_qrcode_error">解析二维码失败</string>
+
+    <string name="no_network_dialog">当前网络不给力，请稍后重试</string>
+    <string name="video_stopped_by_server_dialog">该直播已经被服务器端终止</string>
+
+    <string name="duration_format_short" translatable="false">%2$d:%5$02d</string>
+    <string name="duration_format_long" translatable="false">%1$d:%3$02d:%5$02d</string>
+    <string name="mediacontroller_play_pause">Play/Pause</string>
+
+    <string name="empty_value">--</string>
+
+    <string name="user_data">User ID: </string>
+    <string name="topic">TOPIC: </string>
+    <string name="msg_record">消息记录: </string>
+
+    <string name="msg_comment_not_null">评论内容不能为空</string>
+    <string name="msg_topic_not_null">Topic名称不能为空</string>
+    <string name="title_activity_live_options">LiveOptionsActivity</string>
+
+    <string name="select_resolution">选择视频编码分辨率:</string>
+    <string name="resolution_360p">360x640</string>
+    <string name="resolution_540p">540x960</string>
+    <string name="resolution_720p">720x1280</string>
+    <string name="resolution_360p_land">640x360</string>
+    <string name="resolution_540p_land">960x540</string>
+    <string name="resolution_720p_land">1280x720</string>
+    <string name="orientation_portrait">竖屏</string>
+    <string name="orientation_landscape">横屏</string>
+    <string name="init_frame_rate">视频初始帧率:</string>
+    <string name="init_video_bitrate">视频初始码率:</string>
+    <string name="max_video_bitrate">视频码率(Max):</string>
+    <string name="min_video_bitrate">视频码率(Min):</string>
+    <string name="key_frame_interval">视频I帧间隔帧数:</string>
+    <string name="audio_bitrate">音频码率:</string>
+    <string name="audio_bitrate_16k">16k</string>
+    <string name="audio_bitrate_32k">32k</string>
+    <string name="audio_bitrate_48k">48k</string>
+    <string name="audio_bitrate_64k">64k</string>
+    <string name="audio_bitrate_128k">128k</string>
+    <string name="aac_object_he">使用高质量AAC编码</string>
+    <string name="bgm_mixer_switch">混音开关</string>
+    <string name="use_front_camera">前置摄像头</string>
+    <string name="beauty_on">开启美颜</string>
+    <string name="select_audio_codec">选择音频编码方式</string>
+    <string name="codec_aac_lc">AAC_LC</string>
+    <string name="codec_aac_he">AAC_HE</string>
+    <string name="pls_input_video_vid">视频lid:</string>
+    <string name="input_video_vid">手动输入视频lid</string>
+    <string name="kilo_bit_per_second">kbps</string>
+    <string name="frame_per_second">fps</string>
+    <string name="start_live">开始直播</string>
+    <string name="msg_vid_is_empty">视频lid不能为空</string>
+    <string name="msg_get_vid_fail">获取视频lid失败</string>
+    <string name="msg_get_lid_fail">获取视频lid失败</string>
+    <string name="title_activity_play_options">PlayOptionsActivity</string>
+    <string name="live_streaming">直播</string>
+    <string name="playback">点播</string>
+    <string name="rtmp">RTMP</string>
+    <string name="http_flv">HTTP+FLV</string>
+    <string name="http_hls">HTTP+HLS</string>
+    <string name="http_mp4">HTTP+MP4</string>
+    <string name="http_ts">HTTP+TS</string>
+    <string name="pls_choose_setting">[播放配置]:</string>
+    <string name="pls_choose_support">[选择播放协议]:</string>
+    <string name="pls_choose_videopath">[输入lid]:</string>
+    <string name="input_video_path">手动输入视频的lid,或使用右上角扫码输入</string>
+    <string name="start_play">点击播放</string>
+    <string name="msg_lidorfid_is_empty">视频的lid不能为空</string>
+    <string name="title_activity_player">PlayerActivity</string>
+    <string name="start_interactive_tips">进入连麦</string>
+    <string name="interactive_id_empty">id为空,无法进入连麦</string>
+    <string name="end_interactive">退出连麦</string>
+
+    <string name="pls_input_channel">[输入连麦房间id]:</string>
+    <string name="input_channel_id">手动输入连麦房间id</string>
+    <string name="start_rtc">进入</string>
+    <string name="msg_channel_is_empty">房间id不能为空</string>
+</resources>
