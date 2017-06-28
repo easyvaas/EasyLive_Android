@@ -91,4 +91,64 @@
             android:src="@drawable/live_icon_end"/>
     </RelativeLayout>
 
+    <LinearLayout
+        android:id="@+id/beauty_level_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="14dp"
+        android:layout_margin="10dp"
+        android:visibility="gone"
+        android:background="@color/black_alpha_percent_30"
+        android:layout_above="@id/live_options_right_ll">
+
+        <TextView
+            android:id="@+id/beauty_level_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/base_white"
+            android:text="@string/select_beauty_level"
+            android:textSize="@dimen/text_size_title_h2"/>
+
+        <RadioGroup
+            android:id="@+id/beauty_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/beauty_soft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/base_white"
+                android:checked="false"
+                android:text="@string/beauty_level_soft" />
+
+            <RadioButton
+                android:id="@+id/beauty_illusion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/base_white"
+                android:checked="false"
+                android:text="@string/beauty_level_illusion" />
+
+            <RadioButton
+                android:id="@+id/beauty_smooth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/base_white"
+                android:checked="false"
+                android:text="@string/beauty_level_smooth" />
+
+            <RadioButton
+                android:id="@+id/beauty_pro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/base_white"
+                android:checked="false"
+                android:text="@string/beauty_level_pro" />
+        </RadioGroup>
+
+    </LinearLayout>
+
 </RelativeLayout>

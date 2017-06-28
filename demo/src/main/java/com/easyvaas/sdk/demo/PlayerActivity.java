@@ -71,6 +71,7 @@ public class PlayerActivity extends Activity implements View.OnClickListener {
             builder.setLive(mPlayOption.isLive());
             mEVPlayer.setParameter(builder.build());
             mEVPlayer.setVideoView(mVideoView);
+            mEVPlayer.setEnableAutoReconnect(true);
             mEVPlayer.setOnPreparedListener(mOnPreparedListener);
             mEVPlayer.setOnCompletionListener(mOnCompletionListener);
             mEVPlayer.setOnInfoListener(mOnInfoListener);

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">sdkdemo</string>
+    <string name="app_name">易视云DEMO</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -7,7 +7,7 @@
     <string name="connect_msg_btn">连接聊天服务器</string>
     <string name="send_ping_btn">发送ping包</string>
     <string name="join_topic_btn">加入Topic</string>
-    <string name="send_topic_btn">发送消息</string>
+    <string name="send_channel_btn">发送消息</string>
     <string name="like_btn">点赞</string>
     <string name="get_history_msg_btn">获取历史消息</string>
     <string name="leave_topic_btn">离开Topic</string>
@@ -74,6 +74,9 @@
     <string name="msg_vod_not_created">播放失败，回放视频没有创建成功</string>
     <string name="msg_push_locate_error">请求推流调度出错,直播失败</string>
     <string name="msg_push_redirect_error">获取推流地址出错,直播失败</string>
+    <string name="msg_push_network_error">网络弱爆了,换个网络再试试吧</string>
+    <string name="msg_push_audio_encode_error">音频编码出错,直播失败</string>
+    <string name="msg_push_video_encode_error">视频编码出错,直播失败</string>
     <string name="msg_push_register_error">注册推流资源失败</string>
     <string name="msg_live_show_error">请求播放调度出错,播放失败</string>
     <string name="msg_live_redirect_error">获取播放地址出错,播放失败</string>
@@ -106,7 +109,7 @@
     <string name="empty_value">--</string>
 
     <string name="user_data">User ID: </string>
-    <string name="topic">TOPIC: </string>
+    <string name="channel">Channel: </string>
     <string name="msg_record">消息记录: </string>
 
     <string name="msg_comment_not_null">评论内容不能为空</string>
@@ -167,8 +170,15 @@
     <string name="interactive_id_empty">id为空,无法进入连麦</string>
     <string name="end_interactive">退出连麦</string>
 
+    <string name="select_beauty_level">选择美颜等级:</string>
+    <string name="beauty_level_soft">一级</string>
+    <string name="beauty_level_illusion">二级</string>
+    <string name="beauty_level_smooth">三级</string>
+    <string name="beauty_level_pro">四级</string>
+
     <string name="pls_input_channel">[输入连麦房间id]:</string>
     <string name="input_channel_id">手动输入连麦房间id</string>
     <string name="start_rtc">进入</string>
     <string name="msg_channel_is_empty">房间id不能为空</string>
+    <string name="cur_version">当前版本</string>
 </resources>

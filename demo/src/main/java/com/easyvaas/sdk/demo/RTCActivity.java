@@ -2,28 +2,22 @@ package com.easyvaas.sdk.demo;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.opengl.GLSurfaceView;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.FrameLayout;
-import android.widget.TextView;
 
 import com.easyvaas.sdk.demo.utils.Logger;
 import com.easyvaas.sdk.demo.utils.SingleToast;
 import com.easyvaas.sdk.live.base.EVStreamerParameter;
 import com.easyvaas.sdk.live.base.interactive.OnInteractiveLiveListener;
 import com.easyvaas.sdk.live.wrapper.EVLive;
-import com.easyvaas.sdk.player.base.EVVideoView;
 
 public class RTCActivity extends Activity implements View.OnClickListener {
     private final static String TAG = RTCActivity.class.getSimpleName();
@@ -50,7 +44,7 @@ public class RTCActivity extends Activity implements View.OnClickListener {
         EVStreamerParameter.Builder builder = new EVStreamerParameter.Builder();
         builder.setUseFrontCamera(true)
                 .setIsBeautyOn(false)
-                .setAgoraId(Constant.INTERACTIVE_LIVE_APP_ID);
+                .setRtcId(Constant.INTERACTIVE_LIVE_APP_ID);
         mEVLive.setParameter(builder.build());
         if (!TextUtils.isEmpty(Constant.INTERACTIVE_LIVE_APP_ID)) {
             mEVLive.initInteractiveLiveConfig(Constant.INTERACTIVE_LIVE_APP_ID, false);

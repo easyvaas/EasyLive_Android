@@ -37,24 +37,24 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/topic_ll"
+        android:id="@+id/channel_ll"
         style="@style/item_user_info">
 
         <TextView
-            android:id="@+id/topic_tv"
+            android:id="@+id/channel_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:text="@string/topic"
+            android:text="@string/channel"
             android:textSize="@dimen/text_size_title_h2"/>
 
         <EditText
-            android:id="@+id/topic_et"
+            android:id="@+id/channel_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:gravity="left|center_vertical"
-            android:text="apptest"
+            android:text="evtest"
             android:singleLine="true"
             android:layout_marginLeft="94dp"
             android:layout_marginRight="22dp"
@@ -73,20 +73,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/connect_msg_btn"/>
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/join_topic_ll"
-        style="@style/item_user_info"
-        android:visibility="gone">
-
-        <Button
-            android:id="@+id/join_topic_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/join_topic_btn"/>
 
     </RelativeLayout>
 
@@ -140,7 +126,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="15dp"
             android:layout_alignParentRight="true"
-            android:text="@string/send_topic_btn"/>
+            android:text="@string/send_channel_btn"/>
 
     </RelativeLayout>
 
@@ -148,7 +134,7 @@
         style="@style/default_horizontal_line_style"/>
 
     <RelativeLayout
-        android:id="@+id/leave_topic_ll"
+        android:id="@+id/leave_channel_ll"
         style="@style/item_user_info">
 
         <Button
@@ -164,16 +150,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_centerInParent="true"
-            android:text="@string/get_history_msg_btn"/>
-
-        <Button
-            android:id="@+id/leave_topic_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-            android:text="@string/leave_topic_btn"/>
+            android:text="@string/get_history_msg_btn"/>
 
     </RelativeLayout>
 

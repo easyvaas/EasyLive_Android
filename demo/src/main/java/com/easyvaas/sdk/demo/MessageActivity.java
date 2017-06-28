@@ -25,8 +25,6 @@ import android.widget.TextView;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.easyvaas.sdk.core.bean.HistoryMsgEntity;
-import com.easyvaas.sdk.core.bean.HistoryMsgListEntity;
 import com.easyvaas.sdk.core.net.Constants;
 import com.easyvaas.sdk.core.net.MyRequestCallBack;
 import com.easyvaas.sdk.core.util.Preferences;
@@ -34,7 +32,6 @@ import com.easyvaas.sdk.demo.utils.SingleToast;
 import com.easyvaas.sdk.message.base.bean.MsgInfoEntity;
 import com.easyvaas.sdk.message.wrapper.MessageCallback;
 import com.easyvaas.sdk.message.wrapper.EVMessage;
-import com.easyvaas.sdk.message.wrapper.MessageConstants;
 
 public class MessageActivity extends ActionBarActivity {
     private Button mSendBtn;
@@ -45,12 +42,12 @@ public class MessageActivity extends ActionBarActivity {
     private Button mGetHistoryBtn;
 
     private EditText mUserIDEt;
-    private EditText mTopicEt;
+    private EditText mChannelEt;
     private LinearLayout mLayout;
     private ScrollView mScroll;
     private EditText mSendCommetEt;
 
-    private String mTopic;
+    private String mChannel;
 
     private EVMessage mEVMessage;
 
@@ -65,8 +62,6 @@ public class MessageActivity extends ActionBarActivity {
 
     private static int bgIndex = 0;
 
-    private final static String TOPIC_TEST = "system";
-
     private final static String TEST_MESSAGE = "hello world";
     private final static boolean TRI_FILTER = true;
 
@@ -79,17 +74,13 @@ public class MessageActivity extends ActionBarActivity {
         mSendBtn.setOnClickListener(mOnClickListener);
         mConnectBtn = (Button)findViewById(R.id.msg_connect_btn);
         mConnectBtn.setOnClickListener(mOnClickListener);
-        mJoinBtn = (Button)findViewById(R.id.join_topic_btn);
-        mJoinBtn.setOnClickListener(mOnClickListener);
-        mLeaveBtn = (Button)findViewById(R.id.leave_topic_btn);
-        mLeaveBtn.setOnClickListener(mOnClickListener);
         mLikeBtn = (Button)findViewById(R.id.like_btn);
         mLikeBtn.setOnClickListener(mOnClickListener);
         mGetHistoryBtn = (Button)findViewById(R.id.get_history_btn);
         mGetHistoryBtn.setOnClickListener(mOnClickListener);
 
         mUserIDEt = (EditText)findViewById(R.id.user_data_et);
-        mTopicEt = (EditText)findViewById(R.id.topic_et);
+        mChannelEt = (EditText)findViewById(R.id.channel_et);
         mScroll = (ScrollView)findViewById(R.id.msg_box_sv);
         mSendCommetEt = (EditText)findViewById(R.id.msg_et);
 
@@ -186,10 +177,11 @@ public class MessageActivity extends ActionBarActivity {
     private MessageCallback mMessageCallback = new MessageCallback() {
         @Override public void onConnected() {
             setSystemMsg(mLayout, MessageActivity.this, getCurrColor(), "连接聊天服务器成功");
+            mConnectBtn.setEnabled(false);
         }
 
         @Override public void onNewMessage(String message, String userdata, String userid,
-                                           String topic, String type) {
+                                           String channel, String type) {
             String msg = message;
             if (TextUtils.isEmpty(message)) {
                 msg = userdata.toString();
@@ -260,7 +252,6 @@ public class MessageActivity extends ActionBarActivity {
 
     private View.OnClickListener mOnClickListener = new View.OnClickListener() {
         @Override public void onClick(View v) {
-            List<String> topics = new ArrayList<>();
             switch (v.getId()) {
                 case R.id.send_msg_btn:
                     //messageHelper.sendAsString("hello world!");
@@ -271,25 +262,26 @@ public class MessageActivity extends ActionBarActivity {
                     }
 
                     JSONObject userData = new JSONObject();
+                    JSONObject exctData = new JSONObject();
                     try {
-                        userData.put("nickname", "easyvaas");
-                        userData.put("id", "13220807");
+                        userData.put("nk", "\"大力");
+                        userData.put("logourl", "http://wx.qlogo.cn/mmopen/VIDl7Fxy5gdszrFXrLr9djaGm0jr5xdiaIsmUAocQpq98iaxc2HO65EcAiaGhMCjw7CNqU4icmJBUadGGiabglfDhiaxUrJYvK63jC/0");
+                        userData.put("uid", "13220807");
+
+                        exctData.put("exct", userData);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
 
-                    mEVMessage.send(mTopic, comment, userData.toString(), Constants.MESSAGE_TYPE_MSG,
+                    mEVMessage.send(mChannel, comment, exctData.toString(), Constants.MESSAGE_TYPE_MSG,
                             mSendCallback);
                     break;
                 case R.id.msg_connect_btn:
-                    mTopic = mTopicEt.getText().toString().trim();
-                    mEVMessage.connect(mTopic);
-                    break;
-                case R.id.leave_topic_btn:
-                    mEVMessage.leaveTopic(mTopic);
+                    mChannel = mChannelEt.getText().toString().trim();
+                    mEVMessage.connect(mChannel);
                     break;
                 case R.id.like_btn:
-                    mEVMessage.addLikeCount(mTopic, 1);
+                    mEVMessage.addLikeCount(mChannel, 1);
                     break;
                 case R.id.get_history_btn:
                     if (mHistoryStart == 0) {
@@ -297,11 +289,11 @@ public class MessageActivity extends ActionBarActivity {
                             setSystemMsg(mLayout, MessageActivity.this, getCurrColor(), "---没有更多了---");
                         } else {
                             //获取最近10条
-                            mEVMessage.getLastHistoryMsgs(mTopic, 20, "msg");
+                            mEVMessage.getLastHistoryMsgs(mChannel, 20, "msg");
                         }
                     } else {
                         //当开始index不为零时,获取从开始index的10条
-                        mEVMessage.getHistoryMsgs(mTopic, mHistoryStart, 20, "msg");
+                        mEVMessage.getHistoryMsgs(mChannel, mHistoryStart, 20, "msg");
                     }
                     break;
             }

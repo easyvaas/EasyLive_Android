@@ -163,4 +163,29 @@
     <ImageView
         style="@style/default_horizontal_line_style"/>
 
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/version_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/current_version_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end|bottom"
+            android:layout_marginRight="22dp"
+            android:textSize="@dimen/text_size_12"
+            android:text="@string/cur_version"/>
+
+    </LinearLayout>
+
 </LinearLayout>

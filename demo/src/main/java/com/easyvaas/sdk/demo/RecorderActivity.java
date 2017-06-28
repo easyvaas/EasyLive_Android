@@ -35,7 +35,7 @@ import java.io.File;
 import java.lang.ref.SoftReference;
 
 
-public class RecorderActivity extends Activity{
+public class RecorderActivity extends Activity implements View.OnClickListener{
     private static final String TAG = RecorderActivity.class.getSimpleName();
     public static final String EXTRA_LIVE_CONFIG_BEAN = "extra_live_config_bean";
 
@@ -58,6 +58,12 @@ public class RecorderActivity extends Activity{
     private ImageView mQRCodeImageView;
 
     private View mOptionsView;
+    private View mBeautyLevelView;
+
+    private RadioButton mBeautySoftBtn;
+    private RadioButton mBeautyIllusionBtn;
+    private RadioButton mBeautySmoothBtn;
+    private RadioButton mBeautyProBtn;
 
     private View mCameraViewFrame;
     private View mTextureViewFrame;
@@ -89,6 +95,8 @@ public class RecorderActivity extends Activity{
 
     public Bitmap mBitmap = null;
 
+    private int mBeautyLevel = LiveConstants.BEAUTY_LEVEL_NONE;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         mliveOption = (LiveOption) getIntent().getSerializableExtra(EXTRA_LIVE_CONFIG_BEAN);
@@ -117,8 +125,11 @@ public class RecorderActivity extends Activity{
                     .setIsBeautyOn(mliveOption.isBeautyOn())
                     .setPortrait(mliveOption.isPortrait())
                     .setDisplayRotation(mliveOption.isPortrait() ? 90 : 0)
-                    .setAgoraId(Constant.INTERACTIVE_LIVE_APP_ID);
+                    .setRtcId(Constant.INTERACTIVE_LIVE_APP_ID);
             mIsLandscape = !mliveOption.isPortrait();
+            mBeautyLevel = mliveOption.isBeautyOn()
+                    ? LiveConstants.BEAUTY_LEVEL_1
+                    : LiveConstants.BEAUTY_LEVEL_NONE;
         }
 
         setRequestedOrientation(mIsLandscape
@@ -177,7 +188,13 @@ public class RecorderActivity extends Activity{
 
         mQRCodeImageView = (ImageView) findViewById(R.id.qrcode_image);
 
-        mOptionsView = this.findViewById(R.id.live_options_right_ll);
+        mOptionsView = findViewById(R.id.live_options_right_ll);
+
+        mBeautyLevelView = findViewById(R.id.beauty_level_ll);
+        mBeautySoftBtn = (RadioButton)findViewById(R.id.beauty_soft);
+        mBeautyIllusionBtn = (RadioButton)findViewById(R.id.beauty_illusion);
+        mBeautySmoothBtn = (RadioButton)findViewById(R.id.beauty_smooth);
+        mBeautyProBtn = (RadioButton)findViewById(R.id.beauty_pro);
     }
 
     private void initListeners() {
@@ -204,34 +221,15 @@ public class RecorderActivity extends Activity{
         CheckBox beautyCb = (CheckBox)mOptionsView.findViewById(R.id.live_beauty_cb);
         beautyCb.setOnCheckedChangeListener(mOnCheckedChangeListener);
         beautyCb.setChecked(mliveOption.isBeautyOn());
-        if (mliveOption.isBeautyOn()) {
-            beautyCb.setVisibility(View.VISIBLE);
-        } else {
-            beautyCb.setVisibility(View.GONE);
-        }
+
         CheckBox interactiveCb= (CheckBox) mOptionsView.findViewById(R.id.interactive_live_cb);
         interactiveCb.setOnCheckedChangeListener(mOnCheckedChangeListener);
 
-        mVideoTitleTv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!mQRCodeShow) {
-                    if (TextUtils.isEmpty(mLid)) {
-                        showErrorToast(R.string.vid_was_empty);
-                        return;
-                    }
-                    if (mBitmap == null) {
-                        mBitmap = CodeUtils.createImage(mLid, 400, 400, null);
-                    }
-                    mQRCodeImageView.setImageBitmap(mBitmap);
-                    mQRCodeImageView.setVisibility(View.VISIBLE);
-                    mQRCodeShow = true;
-                } else {
-                    mQRCodeShow = false;
-                    mQRCodeImageView.setVisibility(View.GONE);
-                }
-            }
-        });
+        mVideoTitleTv.setOnClickListener(this);
+        mBeautySoftBtn.setOnClickListener(this);
+        mBeautyIllusionBtn.setOnClickListener(this);
+        mBeautySmoothBtn.setOnClickListener(this);
+        mBeautyProBtn.setOnClickListener(this);
     }
 
     private void initBgmPlayer() {
@@ -248,9 +246,8 @@ public class RecorderActivity extends Activity{
                 return false;
             }
         });
-        mEVLive.setBgmVolume(0.5F);
+        mEVLive.setBgmVolume(0.3F);
         mEVLive.setBgmMute(false);
-        mEVLive.setEnableAudioMix(true);
     }
 
     private CompoundButton.OnCheckedChangeListener mOnCheckedChangeListener =
@@ -278,6 +275,31 @@ public class RecorderActivity extends Activity{
                         case R.id.live_beauty_cb:
                             if (mEVLive != null) {
                                 mEVLive.switchBeauty(isChecked);
+                                mEVLive.setBeautyFilter(mBeautyLevel);
+                            }
+                            if (mBeautyLevel == LiveConstants.BEAUTY_LEVEL_NONE) {
+                                mBeautyLevel = LiveConstants.BEAUTY_LEVEL_1;
+                            }
+
+                            mBeautyLevelView.setVisibility(isChecked ? View.VISIBLE : View.GONE);
+                            if (isChecked) {
+                                switch (mBeautyLevel) {
+                                    case LiveConstants.BEAUTY_LEVEL_1:
+                                        mBeautySoftBtn.setChecked(true);
+                                        break;
+                                    case LiveConstants.BEAUTY_LEVEL_2:
+                                        mBeautyIllusionBtn.setChecked(true);
+                                        break;
+                                    case LiveConstants.BEAUTY_LEVEL_3:
+                                        mBeautySmoothBtn.setChecked(true);
+                                        break;
+                                    case LiveConstants.BEAUTY_LEVEL_4:
+                                        mBeautyProBtn.setChecked(true);
+                                        break;
+                                    default:
+                                        mBeautySoftBtn.setChecked(true);
+                                        break;
+                                }
                             }
                             break;
                         case R.id.live_mute_cb:
@@ -344,6 +366,23 @@ public class RecorderActivity extends Activity{
             mNetworkInvalidDialog = Utils.getOneButtonDialog(this,
                     getResources().getString(R.string.no_network_dialog), false, false,
                     new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            setResult(RESULT_OK);
+                            finish();
+                        }
+                    });
+        }
+        mNetworkInvalidDialog.show();
+    }
+
+    private void showErrorDialog(int resId) {
+        if (isFinishing()) {
+            return;
+        }
+        if (mNetworkInvalidDialog == null) {
+            mNetworkInvalidDialog = Utils.getOneButtonDialog(this, getResources().getString(resId),
+                    false, false, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             setResult(RESULT_OK);
@@ -432,13 +471,24 @@ public class RecorderActivity extends Activity{
 
                     break;
                 case LiveConstants.EV_LIVE_ERROR_SDK_INIT:
-                    showErrorToast(R.string.msg_sdk_init_error);
+                    //showErrorToast(R.string.msg_sdk_init_error);
+                    showErrorDialog(R.string.msg_sdk_init_error);
                     break;
                 case LiveConstants.EV_LIVE_PUSH_LOCATE_ERROR:
                     showErrorToast(R.string.msg_push_locate_error);
                     break;
                 case LiveConstants.EV_LIVE_PUSH_REDIRECT_ERROR:
                     showErrorToast(R.string.msg_push_redirect_error);
+                    break;
+                case LiveConstants.EV_LIVE_ERROR_NETWORK_DIE:
+                case LiveConstants.EV_LIVE_ERROR_NETWORK:
+                    showErrorDialog(R.string.msg_push_network_error);
+                    break;
+                case LiveConstants.EV_LIVE_ERROR_AUDIO_ENCODER:
+                    showErrorDialog(R.string.msg_push_audio_encode_error);
+                    break;
+                case LiveConstants.EV_LIVE_ERROR_VIDEO_ENCODER:
+                    showErrorDialog(R.string.msg_push_video_encode_error);
                     break;
             }
             return true;
@@ -484,6 +534,29 @@ public class RecorderActivity extends Activity{
                     }
                     mDurationTv.setVisibility(View.VISIBLE);
                     mOptionsView.setVisibility(View.VISIBLE);
+                    if (mliveOption.isBeautyOn()) {
+                        mBeautyLevelView.setVisibility(View.VISIBLE);
+
+                        switch (mBeautyLevel) {
+                            case LiveConstants.BEAUTY_LEVEL_1:
+                                mBeautySoftBtn.setChecked(true);
+                                break;
+                            case LiveConstants.BEAUTY_LEVEL_2:
+                                mBeautyIllusionBtn.setChecked(true);
+                                break;
+                            case LiveConstants.BEAUTY_LEVEL_3:
+                                mBeautySmoothBtn.setChecked(true);
+                                break;
+                            case LiveConstants.BEAUTY_LEVEL_4:
+                                mBeautyProBtn.setChecked(true);
+                                break;
+                            default:
+                                mBeautySoftBtn.setChecked(true);
+                                break;
+                        }
+                    } else {
+                        mBeautyLevelView.setVisibility(View.GONE);
+                    }
                     mVideoTitleTv.setVisibility(View.VISIBLE);
                     mVideoTitleTv.setText("lid: " + mLid + ", 点击弹出二维码");
                     mHandler.sendEmptyMessage(MSG_REFRESH_START_TIME);
@@ -540,6 +613,53 @@ public class RecorderActivity extends Activity{
         }
 
         ((CheckBox) mOptionsView.findViewById(R.id.interactive_live_cb)).setChecked(false);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.beauty_soft:
+                if (mEVLive != null) {
+                    mEVLive.setBeautyFilter(LiveConstants.BEAUTY_LEVEL_1);
+                }
+                mBeautyLevel = LiveConstants.BEAUTY_LEVEL_1;
+                break;
+            case R.id.beauty_illusion:
+                if (mEVLive != null) {
+                    mEVLive.setBeautyFilter(LiveConstants.BEAUTY_LEVEL_2);
+                }
+                mBeautyLevel = LiveConstants.BEAUTY_LEVEL_2;
+                break;
+            case R.id.beauty_smooth:
+                if (mEVLive != null) {
+                    mEVLive.setBeautyFilter(LiveConstants.BEAUTY_LEVEL_3);
+                }
+                mBeautyLevel = LiveConstants.BEAUTY_LEVEL_3;
+                break;
+            case R.id.beauty_pro:
+                if (mEVLive != null) {
+                    mEVLive.setBeautyFilter(LiveConstants.BEAUTY_LEVEL_4);
+                }
+                mBeautyLevel = LiveConstants.BEAUTY_LEVEL_4;
+                break;
+            case R.id.player_title_tv:
+                if (!mQRCodeShow) {
+                    if (TextUtils.isEmpty(mLid)) {
+                        showErrorToast(R.string.vid_was_empty);
+                        return;
+                    }
+                    if (mBitmap == null) {
+                        mBitmap = CodeUtils.createImage(mLid, 400, 400, null);
+                    }
+                    mQRCodeImageView.setImageBitmap(mBitmap);
+                    mQRCodeImageView.setVisibility(View.VISIBLE);
+                    mQRCodeShow = true;
+                } else {
+                    mQRCodeShow = false;
+                    mQRCodeImageView.setVisibility(View.GONE);
+                }
+                break;
+        }
     }
 
     static class MyHandler extends Handler {

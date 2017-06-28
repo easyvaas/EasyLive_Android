@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.easyvaas.sdk.core.EVSdk;
 import com.easyvaas.sdk.demo.utils.SingleToast;
@@ -31,6 +32,8 @@ public class MainActivity extends ActionBarActivity {
     private Button messageBtn;
     private Button liveShowBtn;
     private Button rtcBtn;
+
+    private TextView curVersionTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +59,9 @@ public class MainActivity extends ActionBarActivity {
         liveShowBtn.setOnClickListener(mOnClickListener);
         rtcBtn = (Button)findViewById(R.id.rtc_btn);
         rtcBtn.setOnClickListener(mOnClickListener);
+
+        curVersionTv = (TextView)findViewById(R.id.current_version_tv);
+        curVersionTv.setText("DEMO版本: V" + BuildConfig.VERSION_NAME);
     }
 
     @Override
