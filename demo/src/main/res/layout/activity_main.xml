@@ -158,10 +158,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:enabled="false"
+        android:visibility="gone"
         android:text="@string/rtc_btn"/>
-
-    <ImageView
-        style="@style/default_horizontal_line_style"/>
 
     <LinearLayout
         android:id="@+id/content"

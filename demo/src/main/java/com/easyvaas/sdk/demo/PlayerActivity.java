@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.PixelFormat;
+import android.opengl.GLSurfaceView;
 import android.os.PowerManager;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -21,6 +23,7 @@ import com.easyvaas.sdk.demo.bean.PlayOption;
 import com.easyvaas.sdk.demo.utils.Logger;
 import com.easyvaas.sdk.demo.utils.SingleToast;
 import com.easyvaas.sdk.demo.utils.Utils;
+import com.easyvaas.sdk.live.base.EVStreamerParameter;
 import com.easyvaas.sdk.live.base.interactive.OnInteractiveLiveListener;
 import com.easyvaas.sdk.live.wrapper.EVLive;
 import com.easyvaas.sdk.player.EVPlayer;
@@ -36,6 +39,8 @@ public class PlayerActivity extends Activity implements View.OnClickListener {
     private EVVideoView mVideoView;
     private EVPlayer mEVPlayer;
     private EVLive mEVLive;
+
+    private GLSurfaceView mCameraPreviewView;
 
     protected TextView mVideoTitleTv;
     protected View mTopInfoAreaView;
@@ -65,6 +70,15 @@ public class PlayerActivity extends Activity implements View.OnClickListener {
 
             if (mPlayOption.isLive()) {
                 mEVLive = new EVLive(this);
+
+                EVStreamerParameter.Builder builder = new EVStreamerParameter.Builder();
+                builder.setUseFrontCamera(true)
+                        .setIsBeautyOn(false)
+                        .setRtcId(Constant.INTERACTIVE_LIVE_APP_ID);
+                mEVLive.setParameter(builder.build());
+                if (!TextUtils.isEmpty(Constant.INTERACTIVE_LIVE_APP_ID)) {
+                    mEVLive.initInteractiveLiveConfig(Constant.INTERACTIVE_LIVE_APP_ID, false);
+                }
             }
 
             EVPlayerParameter.Builder builder = new EVPlayerParameter.Builder();
@@ -96,6 +110,19 @@ public class PlayerActivity extends Activity implements View.OnClickListener {
         if (null != mEVPlayer) {
             mEVPlayer.onResume();
         }
+
+        if (null != mEVLive) {
+            mEVLive.onResume();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        if (null != mEVLive) {
+            mEVLive.onPause();
+        }
     }
 
     @Override
@@ -114,6 +141,7 @@ public class PlayerActivity extends Activity implements View.OnClickListener {
         }
 
         if (mEVLive != null) {
+            mEVLive.endInteractiveLive();
             mEVLive.onDestroy();
         }
 
@@ -143,6 +171,11 @@ public class PlayerActivity extends Activity implements View.OnClickListener {
         return super.onOptionsItemSelected(item);
     }
 
+    private void startCameraPreview() {
+        mEVLive.setCameraPreview(mCameraPreviewView);
+        mEVLive.startCameraPreview();
+    }
+
     private void startPlay() {
         mEVPlayer.watchStart(mPlayOption.getLid(), mPlayOption.isLive());
 
@@ -155,6 +188,7 @@ public class PlayerActivity extends Activity implements View.OnClickListener {
         mVideoView = (EVVideoView) findViewById(R.id.player_surface_view);
         mTopInfoAreaView = this.findViewById(R.id.play_info_rl);
         mVideoTitleTv = (TextView) findViewById(R.id.player_title_tv);
+        mCameraPreviewView = (GLSurfaceView) this.findViewById(R.id.camera_preview);
 
         mMediaController = new MediaController(this);
         mMediaController.setMediaPlayer(mediaControl);
@@ -220,14 +254,16 @@ public class PlayerActivity extends Activity implements View.OnClickListener {
                         SingleToast.show(getApplicationContext(), R.string.interactive_id_empty);
                     } else {
                         if (isChecked) {
+                            startInteractive();
                             if (mEVLive != null) {
-                                mEVLive.initInteractiveLiveConfig(Constant.INTERACTIVE_LIVE_APP_ID,
-                                        false);
                                 mEVLive.setOnInteractiveLiveListener(mOnInteractiveLiveListener);
+                                mEVLive.setRTCSubScreenRect(0.65F, 0.1F, 0.35F, 0.3F);
+                                mEVLive.setEnableMainScreenRemote(true);
                                 mEVLive.startInteractiveLive(Constant.CHANNEL_ID);
                             }
                         } else {
                             mEVLive.endInteractiveLive();
+                            stopInteractive();
                         }
                     }
 
@@ -244,7 +280,7 @@ public class PlayerActivity extends Activity implements View.OnClickListener {
 
         @Override
         public void onLeaveChannelSuccess() {
-            onInteractiveEnd();
+            //onInteractiveEnd();
         }
 
         @Override
@@ -259,7 +295,6 @@ public class PlayerActivity extends Activity implements View.OnClickListener {
 
         @Override
         public void onUserOffline(int userId, int reason) {
-            onInteractiveEnd();
         }
 
         @Override
@@ -267,20 +302,31 @@ public class PlayerActivity extends Activity implements View.OnClickListener {
         }
     };
 
-    private void onInteractiveStart() {
-        mEVPlayer.onDestroy();
-        mVideoView.setVisibility(View.INVISIBLE);
+    private void startInteractive() {
+        mEVPlayer.stopPlay();
+        mVideoView.setVisibility(View.GONE);
+
+        mCameraPreviewView.setVisibility(View.VISIBLE);
+        mCameraPreviewView.setZOrderMediaOverlay(true);
+        mCameraPreviewView.getHolder().setFormat(PixelFormat.TRANSPARENT);
+
+        startCameraPreview();
     }
 
-    private void onInteractiveEnd() {
+    private void stopInteractive() {
+        mCameraPreviewView.setVisibility(View.GONE);
         mVideoView.setVisibility(View.VISIBLE);
         mEVPlayer.onCreate();
 
         startPlay();
+    }
 
-        if (!isFinishing()) {
-            showLoadingDialog(R.string.loading_data, true, true);
-        }
+    private void onInteractiveStart() {
+
+    }
+
+    private void onInteractiveEnd() {
+
     }
 
     private EVPlayerBase.OnPreparedListener mOnPreparedListener = new EVPlayerBase.OnPreparedListener() {

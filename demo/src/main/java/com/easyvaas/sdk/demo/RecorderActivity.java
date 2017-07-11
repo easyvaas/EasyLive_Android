@@ -320,6 +320,7 @@ public class RecorderActivity extends Activity implements View.OnClickListener{
                                     } else {
                                         mEVLive.setRTCSubScreenRect(0.65F, 0.1F, 0.35F, 0.3F);
                                     }
+                                    mEVLive.setEnableMainScreenRemote(true);
                                     mEVLive.startInteractiveLive(Constant.CHANNEL_ID);
                                 } else {
                                     Toast.makeText(RecorderActivity.this, R.string.end_interactive, Toast.LENGTH_SHORT)

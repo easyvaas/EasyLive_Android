@@ -11,6 +11,14 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"/>
 
+    <android.opengl.GLSurfaceView
+        android:id="@+id/camera_preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:visibility="gone"/>
+
     <include
         android:id="@+id/play_info_rl"
         layout="@layout/play_info"
@@ -38,7 +46,6 @@
         android:layout_marginRight="14dp"
         android:background="@drawable/ic_live_interactive"
         android:checked="false"
-        android:visibility="gone"
         android:button="@null"/>
 
     <RelativeLayout

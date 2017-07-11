@@ -8,8 +8,8 @@ android {
         applicationId "com.easyvaas.sdk.demo"
         minSdkVersion 16
         targetSdkVersion 21
-        versionCode 15
-        versionName "1.1.5"
+        versionCode 16
+        versionName "1.1.6"
     }
 
     sourceSets {
@@ -51,6 +51,6 @@ dependencies {
     compile 'com.easyvaas.sdk:evcore:1.1.7'
     compile 'com.easyvaas.sdk:evlive:1.1.4'
     compile 'com.easyvaas.sdk:evmessage:1.1.6'
-    compile 'com.easyvaas.sdk:evplayer:1.1.4'
+    compile 'com.easyvaas.sdk:evplayer:1.1.5'
 }
 
