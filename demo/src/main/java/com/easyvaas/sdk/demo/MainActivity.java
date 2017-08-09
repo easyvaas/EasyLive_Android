@@ -17,9 +17,9 @@ import com.easyvaas.sdk.demo.utils.SingleToast;
 public class MainActivity extends ActionBarActivity {
     private final static String TAG = MainActivity.class.getSimpleName();
 
-    private final static String APP_ID = "yizhibo";
-    private final static String ACCESS_KEY = "yizhibo";
-    private final static String SECRET_KEY = "helloworld";
+    private final static String APP_ID = "6IgKO0VrP3YmZzcX";
+    private final static String ACCESS_KEY = "gf4Ns9vqkUs7fXPu";
+    private final static String SECRET_KEY = "21TFFFOfBwk0BWiGWxXRHreWXXsws59l";
     private final static String USER_ID = "13220807";
 
     private EditText appIdEt;
