@@ -35,11 +35,9 @@
 
 ```
 allprojects {
-		repositories {
+    repositories {
 			jcenter()
-			maven { 
-                url 'https://maven.google.com/'
-			}
+			maven { url 'https://maven.google.com/' }
 		}
 }
 	
