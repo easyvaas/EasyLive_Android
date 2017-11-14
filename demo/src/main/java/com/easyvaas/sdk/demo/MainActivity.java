@@ -1,8 +1,8 @@
 package com.easyvaas.sdk.demo;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,13 +14,17 @@ import android.widget.TextView;
 import com.easyvaas.sdk.core.EVSdk;
 import com.easyvaas.sdk.demo.utils.SingleToast;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
     private final static String TAG = MainActivity.class.getSimpleName();
 
-    private final static String APP_ID = "6IgKO0VrP3YmZzcX";
-    private final static String ACCESS_KEY = "gf4Ns9vqkUs7fXPu";
-    private final static String SECRET_KEY = "21TFFFOfBwk0BWiGWxXRHreWXXsws59l";
+    private final static String APP_ID = "12556646";
+    private final static String ACCESS_KEY = "2eq6s6Iy5Nu";
+    private final static String SECRET_KEY = "2eq6s6Iy6Ry";
     private final static String USER_ID = "13220807";
+    /*private final static String APP_ID = "53957274";
+    private final static String ACCESS_KEY = "4K7kw4udnnq";
+    private final static String SECRET_KEY = "1ZHE3Oe6CA085YAW3yk3KTlx1otXsK2F";
+    private final static String USER_ID = "";*/
 
     private EditText appIdEt;
     private EditText accessKeyEt;
@@ -32,6 +36,7 @@ public class MainActivity extends ActionBarActivity {
     private Button messageBtn;
     private Button liveShowBtn;
     private Button rtcBtn;
+    private Button liveShowVRButton;
 
     private TextView curVersionTv;
 
@@ -59,6 +64,8 @@ public class MainActivity extends ActionBarActivity {
         liveShowBtn.setOnClickListener(mOnClickListener);
         rtcBtn = (Button)findViewById(R.id.rtc_btn);
         rtcBtn.setOnClickListener(mOnClickListener);
+        liveShowVRButton = findViewById(R.id.live_show_vrbtn);
+        liveShowVRButton.setOnClickListener(mOnClickListener);
 
         curVersionTv = (TextView)findViewById(R.id.current_version_tv);
         curVersionTv.setText("DEMO版本: V" + BuildConfig.VERSION_NAME);
@@ -113,6 +120,9 @@ public class MainActivity extends ActionBarActivity {
                         startActivity(new Intent(getApplicationContext(), RtcOptionsActivity.class));
                     }
                     break;
+                case R.id.live_show_vrbtn:
+                    startActivity(new Intent(getApplicationContext(), VRPlayerOptionsActivity.class));
+                    break;
             }
         }
     };
@@ -124,6 +134,7 @@ public class MainActivity extends ActionBarActivity {
         messageBtn.setEnabled(false);
         liveShowBtn.setEnabled(false);
         rtcBtn.setEnabled(false);
+        liveShowVRButton.setEnabled(false);
 
         String appID = appIdEt.getText().toString().trim();
         if (TextUtils.isEmpty(appID)) {
@@ -144,10 +155,10 @@ public class MainActivity extends ActionBarActivity {
         }
 
         String userID = userIdEt.getText().toString().trim();
-        if (TextUtils.isEmpty(userID)) {
+        /*if (TextUtils.isEmpty(userID)) {
             SingleToast.show(getApplicationContext(), R.string.msg_user_id_not_null);
             return;
-        }
+        }*/
 
         EVSdk.setInitListener(new EVSdk.OnSDKInitListener() {
             @Override public void onSuccess() {
@@ -157,6 +168,7 @@ public class MainActivity extends ActionBarActivity {
                 messageBtn.setEnabled(true);
                 liveShowBtn.setEnabled(true);
                 rtcBtn.setEnabled(true);
+                liveShowVRButton.setEnabled(true);
             }
 
             @Override public void onFailed(int code, String msg) {

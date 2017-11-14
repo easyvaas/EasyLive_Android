@@ -104,6 +104,8 @@ public class RecorderActivity extends Activity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_recorder);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
         mHandler = new MyHandler(this);
 
         mBgmFilePath = getFilesDir() + File.separator + BGM_FILE_NAME;

@@ -184,4 +184,12 @@ public class Utils {
             e.printStackTrace();
         }
     }
+
+    public static void hideStatusBar(View view, boolean horizental) {
+        if (horizental) {
+            view.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
+        } else {
+            view.setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+        }
+    }
 }

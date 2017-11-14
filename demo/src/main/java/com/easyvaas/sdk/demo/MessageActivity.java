@@ -1,16 +1,11 @@
 package com.easyvaas.sdk.demo;
 
-import java.lang.ref.SoftReference;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.view.Menu;
@@ -22,18 +17,22 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import com.easyvaas.sdk.core.net.Constants;
 import com.easyvaas.sdk.core.net.MyRequestCallBack;
 import com.easyvaas.sdk.core.util.Preferences;
 import com.easyvaas.sdk.demo.utils.SingleToast;
 import com.easyvaas.sdk.message.base.bean.MsgInfoEntity;
-import com.easyvaas.sdk.message.wrapper.MessageCallback;
 import com.easyvaas.sdk.message.wrapper.EVMessage;
+import com.easyvaas.sdk.message.wrapper.MessageCallback;
 
-public class MessageActivity extends ActionBarActivity {
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.lang.ref.SoftReference;
+import java.util.Calendar;
+import java.util.List;
+
+public class MessageActivity extends AppCompatActivity {
     private Button mSendBtn;
     private Button mConnectBtn;
     private Button mJoinBtn;
@@ -92,7 +91,7 @@ public class MessageActivity extends ActionBarActivity {
         mUserIDMine = Preferences.getInstance(this).getString(Preferences.KEY_SDK_USER_ID, "");
         mUserIDEt.setText(mUserIDMine);
 
-        mEVMessage = new EVMessage(this);
+        mEVMessage = new EVMessage(getApplicationContext());
         mEVMessage.setMessageCallback(mMessageCallback);
     }
 
@@ -122,6 +121,7 @@ public class MessageActivity extends ActionBarActivity {
         if (mEVMessage != null) {
             mEVMessage.close();
         }
+        mMessageCallback = null;
         super.onDestroy();
     }
 

@@ -31,6 +31,7 @@
     <string name="live_push_btn">直播功能</string>
     <string name="message_btn">消息系统</string>
     <string name="live_show_btn">观看视频</string>
+    <string name="live_show_vrbtn">观看VR视频</string>
     <string name="rtc_btn">连麦</string>
     <string name="live_interactive_live">连麦（辅播）</string>
     <string name="title_activity_recorder">RecorderActivity</string>
@@ -152,6 +153,7 @@
     <string name="msg_get_vid_fail">获取视频lid失败</string>
     <string name="msg_get_lid_fail">获取视频lid失败</string>
     <string name="title_activity_play_options">PlayOptionsActivity</string>
+    <string name="title_activity_vrplay_options">VRPlayOptionsActivity</string>
     <string name="live_streaming">直播</string>
     <string name="playback">点播</string>
     <string name="rtmp">RTMP</string>
@@ -162,7 +164,9 @@
     <string name="pls_choose_setting">[播放配置]:</string>
     <string name="pls_choose_support">[选择播放协议]:</string>
     <string name="pls_choose_videopath">[输入lid]:</string>
+    <string name="pls_choose_videopath1">[输入url]:</string>
     <string name="input_video_path">手动输入视频的lid,或使用右上角扫码输入</string>
+    <string name="input_video_path1">手动输入vr视频的url</string>
     <string name="start_play">点击播放</string>
     <string name="msg_lidorfid_is_empty">视频的lid不能为空</string>
     <string name="title_activity_player">PlayerActivity</string>
@@ -181,4 +185,6 @@
     <string name="start_rtc">进入</string>
     <string name="msg_channel_is_empty">房间id不能为空</string>
     <string name="cur_version">当前版本</string>
+
+    <string name="exit_vr_pattern">按下返回键,可以退出VR眼镜模式!</string>
 </resources>

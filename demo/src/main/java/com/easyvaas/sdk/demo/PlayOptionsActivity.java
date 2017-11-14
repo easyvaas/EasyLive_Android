@@ -1,8 +1,8 @@
 package com.easyvaas.sdk.demo;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import com.easyvaas.sdk.demo.bean.PlayOption;
 import com.easyvaas.sdk.demo.utils.SingleToast;
@@ -20,7 +19,7 @@ import com.easyvaas.sdk.player.PlayerConstants;
 import com.uuzuche.lib_zxing.activity.CaptureActivity;
 import com.uuzuche.lib_zxing.activity.CodeUtils;
 
-public class PlayOptionsActivity extends ActionBarActivity implements View.OnClickListener {
+public class PlayOptionsActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = PlayOptionsActivity.class.getSimpleName();
     private static final String TEST_VIDEO_PATH = "http://wsflv.yizhibo.tv/record/liyahtest.flv";
 

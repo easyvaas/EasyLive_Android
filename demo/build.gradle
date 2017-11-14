@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
 
     defaultConfig {
         applicationId "com.easyvaas.sdk.demo"
         minSdkVersion 16
-        targetSdkVersion 21
-        versionCode 17
-        versionName "1.1.7"
+        targetSdkVersion 26
+        versionCode 19
+        versionName "1.2.1"
     }
 
     sourceSets {
@@ -41,16 +41,21 @@ android {
 
 repositories {
     flatDir { dirs 'libs' }
+    maven {
+        url 'https://maven.google.com/'
+        name 'Google'
+    }
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:23.4.0'
-    compile 'com.android.support:design:23.4.0'
+    compile 'com.android.support:appcompat-v7:26.1.0'
+    compile 'com.android.support:design:26.1.0'
     compile 'cn.yipianfengye.android:zxing-library:2.1'
-    compile 'com.easyvaas.sdk:evcore:1.1.9'
-    compile 'com.easyvaas.sdk:evlive:1.1.5'
-    compile 'com.easyvaas.sdk:evmessage:1.1.6'
-    compile 'com.easyvaas.sdk:evplayer:1.1.5'
+    compile 'com.easyvaas.sdk:evcore:1.2.1'
+    compile 'com.easyvaas.sdk:evlive:1.2.1'
+    compile 'com.easyvaas.sdk:evmessage:1.2.1'
+    compile 'com.easyvaas.sdk:evplayer:1.2.1'
+    compile project(':EVVRPlayer')
 }
 

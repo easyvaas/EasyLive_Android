@@ -12,6 +12,7 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.FrameLayout;
@@ -59,6 +60,7 @@ public class PlayerActivity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         mPlayOption = (PlayOption) getIntent().getSerializableExtra(EXTRA_PLAY_CONFIG_BEAN);
 
@@ -90,6 +92,7 @@ public class PlayerActivity extends Activity implements View.OnClickListener {
             mEVPlayer.setOnCompletionListener(mOnCompletionListener);
             mEVPlayer.setOnInfoListener(mOnInfoListener);
             mEVPlayer.setOnErrorListener(mOnErrorListener);
+            mEVPlayer.setScaleMode(PlayerConstants.VIDEO_SCALING_MODE_SCALE_TO_FIT);
             mEVPlayer.onCreate();
 
             startPlay();
@@ -198,7 +201,7 @@ public class PlayerActivity extends Activity implements View.OnClickListener {
     private void initListeners() {
         findViewById(R.id.live_close_iv).setOnClickListener(this);
 
-        CheckBox interactiveCb= (CheckBox) findViewById(R.id.interactive_live_cb);
+        CheckBox interactiveCb = (CheckBox) findViewById(R.id.interactive_live_cb);
         if (mPlayOption.isLive()) {
             interactiveCb.setOnCheckedChangeListener(mOnCheckedChangeListener);
             findViewById(R.id.player_bottom_progress_btn).setVisibility(View.GONE);
@@ -330,7 +333,8 @@ public class PlayerActivity extends Activity implements View.OnClickListener {
     }
 
     private EVPlayerBase.OnPreparedListener mOnPreparedListener = new EVPlayerBase.OnPreparedListener() {
-        @Override public boolean onPrepared() {
+        @Override
+        public boolean onPrepared() {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
@@ -343,7 +347,8 @@ public class PlayerActivity extends Activity implements View.OnClickListener {
     };
 
     private EVPlayerBase.OnCompletionListener mOnCompletionListener = new EVPlayerBase.OnCompletionListener() {
-        @Override public boolean onCompletion() {
+        @Override
+        public boolean onCompletion() {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
@@ -367,7 +372,8 @@ public class PlayerActivity extends Activity implements View.OnClickListener {
     };
 
     private EVPlayerBase.OnInfoListener mOnInfoListener = new EVPlayerBase.OnInfoListener() {
-        @Override public boolean onInfo(int what, final int extra) {
+        @Override
+        public boolean onInfo(int what, final int extra) {
             switch (what) {
                 case IMediaPlayer.MEDIA_INFO_BUFFERING_START:
                     runOnUiThread(new Runnable() {
@@ -403,7 +409,8 @@ public class PlayerActivity extends Activity implements View.OnClickListener {
     };
 
     private EVPlayerBase.OnErrorListener mOnErrorListener = new EVPlayerBase.OnErrorListener() {
-        @Override public boolean onError(int what, int extra) {
+        @Override
+        public boolean onError(int what, int extra) {
             switch (what) {
                 case PlayerConstants.EV_PLAYER_ERROR_SDK_INIT:
                     showToastOnUiThread(R.string.msg_sdk_init_error);
@@ -528,12 +535,12 @@ public class PlayerActivity extends Activity implements View.OnClickListener {
 
         @Override
         public int getDuration() {
-            return mVideoView != null ? (int)mVideoView.getDuration() : 0;
+            return mVideoView != null ? (int) mVideoView.getDuration() : 0;
         }
 
         @Override
         public int getCurrentPosition() {
-            return mVideoView != null ? (int)mVideoView.getCurrentPosition() : 0;
+            return mVideoView != null ? (int) mVideoView.getCurrentPosition() : 0;
         }
 
         @Override

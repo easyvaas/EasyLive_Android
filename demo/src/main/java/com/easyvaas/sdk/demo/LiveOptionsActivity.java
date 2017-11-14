@@ -1,8 +1,8 @@
 package com.easyvaas.sdk.demo;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,12 +20,13 @@ import com.easyvaas.sdk.demo.utils.Logger;
 import com.easyvaas.sdk.demo.utils.SingleToast;
 import com.easyvaas.sdk.live.wrapper.LiveConstants;
 
-public class LiveOptionsActivity extends ActionBarActivity implements View.OnClickListener {
+public class LiveOptionsActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = LiveOptionsActivity.class.getSimpleName();
 
     private static final int MAX_VIDEO_BR_DEFAULT = 800;
     private static final int INIT_VIDEO_BR_DEFAULT = 500;
     private static final int AUDIO_BITRATE_DEFAULT = 32;
+    private static final int STREAM_VALIDITY_SECOND = 120;
 
     private RadioButton resolution360button;
     private RadioButton resolution540button;
@@ -99,7 +100,6 @@ public class LiveOptionsActivity extends ActionBarActivity implements View.OnCli
             @Override public void onSuccess(String url, StreamInfoEntity result) {
                 Logger.d(TAG, "genstream delay: " + (int) (System.currentTimeMillis() - start));
                 vidEt.setText(result.getLid());
-                mKey = result.getKey();
             }
 
             @Override public void onError(String url, int errorCode, String errorInfo) {

@@ -153,6 +153,17 @@
         style="@style/default_horizontal_line_style"/>
 
     <Button
+        android:id="@+id/live_show_vrbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:enabled="false"
+        android:text="@string/live_show_vrbtn"/>
+
+    <ImageView
+        style="@style/default_horizontal_line_style"/>
+
+    <Button
         android:id="@+id/rtc_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

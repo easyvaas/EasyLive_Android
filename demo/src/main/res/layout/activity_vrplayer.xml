@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_player"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
+
+    <com.easyvaas.sdk.vrplayer.EVVrVideoView
+        android:id="@+id/vr_player_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center" />
+
+    <ImageView
+        android:id="@+id/live_close_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="9dp"
+        android:layout_marginTop="7dp"
+        android:padding="9dp"
+        android:src="@drawable/icon_close_live" />
+
+    <RelativeLayout
+        android:id="@+id/player_bottom_action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="12dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <ImageView
+            android:id="@+id/player_bottom_progress_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/play_back_icon_timeline" />
+
+        <ImageView
+            android:id="@+id/player_bottom_360_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_toRightOf="@id/player_bottom_progress_btn"
+            android:src="@drawable/ic_watch_gyroscope" />
+
+        <CheckBox
+            android:id="@+id/player_bottom_vr_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_toRightOf="@+id/player_bottom_360_btn"
+            android:background="@drawable/ic_watch_vr"
+            android:button="@null" />
+    </RelativeLayout>
+
+</RelativeLayout>
