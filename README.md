@@ -34,18 +34,19 @@
 * 推荐使用gradle方式集成：
 
 ```
-//添加易视云maven库地址
 allprojects {
 		repositories {
 			jcenter()
-			maven { url 'https://git.yizhibo.tv/android/mvn-repo/raw/master' }
+			maven { 
+                url 'https://maven.google.com/'
+			}
 		}
 }
 	
-compile 'com.easyvaas.sdk:evcore:1.1.6'
-compile 'com.easyvaas.sdk:evlive:1.1.3'
-compile 'com.easyvaas.sdk:evmessage:1.1.5'
-compile 'com.easyvaas.sdk:evplayer:1.1.3'
+compile 'com.easyvaas.sdk:evcore:1.2.1'
+compile 'com.easyvaas.sdk:evlive:1.2.1'
+compile 'com.easyvaas.sdk:evmessage:1.2.1'
+compile 'com.easyvaas.sdk:evplayer:1.2.1'
 ```
 
 
