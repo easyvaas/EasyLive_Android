@@ -17,14 +17,10 @@ import com.easyvaas.sdk.demo.utils.SingleToast;
 public class MainActivity extends AppCompatActivity {
     private final static String TAG = MainActivity.class.getSimpleName();
 
-    private final static String APP_ID = "12556646";
-    private final static String ACCESS_KEY = "2eq6s6Iy5Nu";
-    private final static String SECRET_KEY = "2eq6s6Iy6Ry";
-    private final static String USER_ID = "13220807";
-    /*private final static String APP_ID = "53957274";
-    private final static String ACCESS_KEY = "4K7kw4udnnq";
-    private final static String SECRET_KEY = "1ZHE3Oe6CA085YAW3yk3KTlx1otXsK2F";
-    private final static String USER_ID = "";*/
+    private final static String APP_ID = "";
+    private final static String ACCESS_KEY = "";
+    private final static String SECRET_KEY = "";
+    private final static String USER_ID = "";
 
     private EditText appIdEt;
     private EditText accessKeyEt;
